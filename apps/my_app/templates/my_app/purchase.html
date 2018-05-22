@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'my_app/css/purchase.css' %}">
+</head>
+<body>
+    <a class="home" href="/dashboard">Home</a>
+    <h1>Purchase Posts!</h1>
+    <h3>$1 = 5 posts</h3>
+    <p>Select how much you are willing to pay</p>
+    <form action="/prestripe" method="post">
+      {% csrf_token %}
+      <select name="purchase">
+        <option value=100>$1</option>
+        <option value=200>$2</option>
+        <option value=300>$3</option>
+        <option value=400>$4</option>
+        <option value=500>$5</option>
+      </select>
+      <input type="submit" value="Buy">
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'my_app/css/index.css' %}">
+</head>
+<body id="main">
+    {% for messages in messages %}
+        <p>{{messages}}</p>
+    {% endfor %}
+    <div class="register">
+        <form action="/register" method="post">
+            {% csrf_token %}
+            <h1>Register</h1>
+            <h3>First Name: </h3><input type="text" name="first_name">
+            <h3>Last Name: </h3><input type="text" name="last_name">
+            <h3>Username: </h3><input type="text" name="username">
+            <h3>Password: </h3><input type="password" name="password">
+            <h3>Confirm Password</h3><input type="password" name="confirm_password">
+            <input class="button" type="submit" value="Register">
+        </form>
+    </div>
+    <div class="login">
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <h1>Login</h1>
+            <h3>Username: </h3><input type="text" name="username">
+            <h3>Password: </h3><input type="password" name="password">
+            <input class="button" type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>

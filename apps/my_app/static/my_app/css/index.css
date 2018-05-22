@@ -1,0 +1,24 @@
+body{
+    background-color: #ffefd0;
+    background-image: url('/static/my_app/imgs/nba.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: 100% 100%
+}
+.register, .login{
+    height: 575px;
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 auto;
+}
+.button{
+    background-color: fuchsia;
+    border-radius: 5px;
+    color: white;
+    display: block;
+    margin-top: 10px;
+}
+html{
+    color: greenyellow;
+}
