@@ -5,32 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'my_app/css/users.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-    <a href="/dashboard">Home</a>
-    <a href="/logout">Logout</a>
-    <h1>{{user.first_name}}'s Profile</h1>
-    <h2>Full Name: {{user.first_name}} {{user.last_name}}</h2>
-    <h2>Username: {{user.username}}</h2>
-    <h2>Friends: </h2>
-    {% if not friends %}
-        <p>no friends :(</p>
-    {% else %}
-    {% for i in friends %}
-    <h4><a href="/users/{{i.id}}">{{i.first_name}}</a></h4>
-    {% endfor %}
-    {% endif %}
-    <h2>Photos: </h2>
-    {% if not photo %}
-        <p>no photos :(</p>
-    {% else %}
-    {% for photos in photo %}
-            {% if photos.image %}
-                <h3 id="caption">{{photos.caption}}</h3>
-                <img src="{{photos.image_thumbnail.url}}">
-            {% endif %}
+    <div class="wrapper">
+        <div class="navigate">
+            <a href="/dashboard">Home</a> |
+            <a href="/logout">Logout</a>
+        </div>
+        <h1 class="text-primary">{{user.first_name}}'s Profile</h1>
+        <h2>Full Name: {{user.first_name}} {{user.last_name}}</h2>
+        <h2>Username: {{user.username}}</h2>
+        <h2>Friends: </h2>
+        {% if not friends %}
+            <p>no friends :(</p>
+        {% else %}
+        {% for i in friends %}
+        <h4><a href="/users/{{i.id}}">{{i.first_name}}</a></h4>
         {% endfor %}
-    {% endif %}
+        {% endif %}
+        <h2>Photos: </h2>
+        {% if not photo %}
+            <p>no photos :(</p>
+        {% else %}
+        {% for photos in photo %}
+                {% if photos.image %}
+                    <h3 id="caption">{{photos.caption}}</h3>
+                    <img src="{{photos.image_thumbnail.url}}">
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
 </body>
 </html>

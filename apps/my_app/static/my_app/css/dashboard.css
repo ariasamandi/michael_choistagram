@@ -1,12 +1,13 @@
 body{
     background-color: aliceblue;
     display: inline-block;
-    width: 100%
+    width: 100%;
+    padding: 10px;
 }
 h1{
     display: inline-block;
     font-family: 'Pacifico', cursive;
-    margin-left: 560px;
+    margin-left: 500px;
 }
 .logout{
     float: right;
@@ -19,7 +20,7 @@ h1{
     border: 2px solid black;
     display: inline-block;
     overflow: auto;
-    width: 32%;
+    width: 31%;
     height: 500px;
 }
 img{
@@ -37,21 +38,30 @@ img{
     height: 20%;
     background-color: aqua;
 }
-.add{
+#add{
     border: 2px solid white;
     height: 393px;
-    width: 32%;
+    width: 31%;
     overflow: auto;
     display: inline-block;
     float: right;
+    margin-right: 10px;
+    padding-left: 10px;
 }
-.friends{
+#friends{
     border: 2px solid white;
     height: 390px;
     overflow: auto;
-    width: 32%;
+    width: 31%;
     display: inline-block;
-    /* float: right; */
     vertical-align: top;
-    margin-left: 20px;
+    margin-left: 10px;
+    padding-left: 10px;
 }
+button{
+    background-color: honeydew;
+}
+.a1{
+    color: black;
+}
+a.a1:hover, a.a1:active{color: black; text-decoration: none;}
