@@ -24,6 +24,7 @@
                 {% if photos.image %}
                     <h3 id="caption">{{photos.caption}}</h3>
                     <img src="{{photos.image_thumbnail.url}}">
+                    <a class="remove" href="/remove/post/{{photos.id}}">remove</a>
                 {% endif %}
             {% endfor %}
         </div>
@@ -33,7 +34,7 @@
                 {% csrf_token %}
                 <h3>Caption: </h3>
                 <input type="text" name="caption">
-                <h3>Post Photos</h3><input type="file" name="image">
+                <h3>Post Photos</h3><input type="file" name="image" required>
                 <input type="submit" value="Add Photo">
                 <br><br><br>
 
@@ -41,7 +42,7 @@
         </div>
         {% endif %}
         <div id="friends">
-            <h2>Here is the list of your friends: </h2>
+            <h3>Here is the list of your friends: </h3>
             <table border="1">
                 <tr>
                     <th>Alias</th>
@@ -53,12 +54,12 @@
                     {% for i in friends %}
                     <tr>
                             <td>{{i.first_name}}</td>
-                            <td><a href="/users/{{i.id}}">View Profile</a> <a href="/remove/{{i.id}}">Remove as Friend</a></td>
+                            <td><a href="/users/{{i.id}}">View Profile</a> <a href="/remove/friend/{{i.id}}">Remove as Friend</a></td>
                         </tr>
                     {% endfor %}
                     {% endif %}
             </table>
-            <h2>Other Users not on your friend's list: </h2>
+            <h3>Other Users not on your friend's list: </h3>
             <table border="1">
                 <tr>
                     <th>Alias</th>
